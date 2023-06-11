@@ -23,5 +23,5 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 
 SELECT letra, fecha, valor
 FROM data
-ORDER BY letra, valor;
+ORDER BY letra, valor, fecha;
 
