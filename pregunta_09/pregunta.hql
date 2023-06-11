@@ -46,3 +46,10 @@ LOAD DATA LOCAL INPATH 'data1.csv' INTO TABLE tbl1;
     >>> Escriba su respuesta a partir de este punto <<<
 */
 
+INSERT OVERWRITE LOCAL DIRECTORY 'output'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+
+SELECT t0.c1, t0.c2, t1.c4[t0.c2] as c6
+FROM tbl0 t0 JOIN tbl1 t1
+ON t0.c1 = t1.c1
+ORDER BY t0.c1;

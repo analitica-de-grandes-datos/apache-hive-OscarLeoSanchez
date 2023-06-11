@@ -46,3 +46,11 @@ LOAD DATA LOCAL INPATH 'data1.csv' INTO TABLE tbl1;
     >>> Escriba su respuesta a partir de este punto <<<
 */
 
+
+INSERT OVERWRITE LOCAL DIRECTORY 'output'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+
+SELECT c2, CONCAT_WS(':', collect_list(CAST(c1 AS string)))
+FROM tbl0
+GROUP BY c2;
+-- GROUP_CONCAT(columna SEPARATOR '-')
