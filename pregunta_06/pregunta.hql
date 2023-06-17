@@ -46,3 +46,16 @@ LOAD DATA LOCAL INPATH 'data1.csv' INTO TABLE tbl1;
     >>> Escriba su respuesta a partir de este punto <<<
 */
 
+INSERT OVERWRITE LOCAL DIRECTORY 'output'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+-- SELECT 
+--     CONCAT_WS(
+--         ':', 
+--         upper(x)
+--     ) 
+-- FROM 
+-- --     tbl0 
+-- SELECT collect_list(lower(val))
+-- FROM (SELECT explode(array('C:D:E:A:B')) AS val) t;
+
+SELECT UPPER(CONCAT_WS(':', c5)) AS resultado FROM tbl0;

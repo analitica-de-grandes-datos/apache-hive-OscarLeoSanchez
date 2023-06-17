@@ -47,3 +47,10 @@ LOAD DATA LOCAL INPATH 'data1.csv' INTO TABLE tbl1;
     >>> Escriba su respuesta a partir de este punto <<<
 */
 
+INSERT OVERWRITE LOCAL DIRECTORY 'output'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+
+SELECT t.c2, SUM(map_value) AS total_sum
+FROM tbl0 t
+LATERAL VIEW explode(c6) t1 AS map_key, map_value
+GROUP BY t.c2;
